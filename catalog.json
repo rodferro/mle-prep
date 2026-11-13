@@ -1,0 +1,37 @@
+[
+  {
+    "id": "p01",
+    "module": "p01_gradient_descent",
+    "title": "Linear regression with gradient descent",
+    "difficulty": "Easy",
+    "tags": ["ml-fundamentals", "optimization", "docusign"]
+  },
+  {
+    "id": "p02",
+    "module": "p02_precision_recall",
+    "title": "Precision and recall from a confusion matrix",
+    "difficulty": "Easy",
+    "tags": ["metrics", "docusign"]
+  },
+  {
+    "id": "p03",
+    "module": "p03_near_duplicates",
+    "title": "Near-duplicate agreement events in a stream",
+    "difficulty": "Medium",
+    "tags": ["streaming", "hashing", "docusign"]
+  },
+  {
+    "id": "p04",
+    "module": "p04_rolling_metrics",
+    "title": "Rolling model performance metrics",
+    "difficulty": "Medium",
+    "tags": ["metrics", "monitoring", "sliding-window", "docusign"]
+  },
+  {
+    "id": "p05",
+    "module": "p05_text_preprocessing",
+    "title": "Safely parse and preprocess large text documents",
+    "difficulty": "Medium",
+    "tags": ["nlp", "streaming", "unicode", "docusign"]
+  }
+]

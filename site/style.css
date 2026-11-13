@@ -1,0 +1,92 @@
+:root {
+  --bg: #15171c;
+  --panel: #1d2027;
+  --border: #2c303a;
+  --text: #e3e6ec;
+  --muted: #9aa1ae;
+  --accent: #5b9cff;
+  --pass: #3fb27f;
+  --fail: #e5534b;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+[hidden] { display: none !important; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+.brand { font-weight: 700; color: var(--text); font-size: 16px; }
+.anki { margin-left: auto; font-size: 13px; }
+.status { font-size: 12px; padding: 2px 8px; border-radius: 10px; border: 1px solid var(--border); color: var(--muted); }
+.status.ready { color: var(--pass); border-color: var(--pass); }
+.status.error { color: var(--fail); border-color: var(--fail); }
+
+/* list */
+#list-view { max-width: 900px; margin: 0 auto; padding: 24px 20px; width: 100%; }
+.intro { color: var(--muted); }
+table.problems { width: 100%; border-collapse: collapse; }
+.problems th, .problems td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); }
+.problems th { color: var(--muted); font-weight: 500; font-size: 13px; }
+.problems tbody tr { cursor: pointer; }
+.problems tbody tr:hover { background: var(--panel); }
+.tag { display: inline-block; font-size: 11px; padding: 1px 7px; margin: 2px 4px 2px 0; border-radius: 8px; background: #2a2f3a; color: var(--muted); }
+.diff-Easy { color: var(--pass); }
+.diff-Medium { color: #e3b341; }
+.diff-Hard { color: var(--fail); }
+
+/* problem */
+.split { flex: 1; display: grid; grid-template-columns: minmax(320px, 42%) 1fr; min-height: 0; }
+.statement { overflow: auto; padding: 18px 22px; border-right: 1px solid var(--border); }
+.statement h1 { font-size: 20px; margin: 0 0 6px; }
+.meta { margin-bottom: 12px; font-size: 13px; }
+#p-statement { white-space: pre-wrap; font: 13.5px/1.55 var(--mono); color: #cfd4dd; margin: 0; }
+
+.workspace { display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+.toolbar { display: flex; gap: 8px; padding: 8px 10px; border-bottom: 1px solid var(--border); background: var(--panel); }
+.spacer { flex: 1; }
+button {
+  background: #2a2f3a; color: var(--text); border: 1px solid var(--border);
+  border-radius: 6px; padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer;
+}
+button:hover:not(:disabled) { border-color: var(--muted); }
+button:disabled { opacity: 0.5; cursor: default; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+button.small { padding: 2px 8px; font-size: 12px; }
+
+#editor { flex: 1 1 55%; min-height: 220px; overflow: hidden; }
+.CodeMirror { height: 100%; font: 13.5px/1.5 var(--mono); }
+
+#solution-panel { flex: 1 1 40%; min-height: 160px; display: flex; flex-direction: column; border-top: 1px solid var(--border); }
+.panel-head { display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; font-size: 12px; color: var(--muted); background: var(--panel); }
+#solution { flex: 1; margin: 0; padding: 10px 14px; overflow: auto; font: 12.5px/1.5 var(--mono); background: #101216; }
+
+#result-banner { padding: 6px 12px; font-weight: 600; font-size: 14px; }
+#result-banner.pass { background: rgba(63, 178, 127, 0.15); color: var(--pass); }
+#result-banner.fail { background: rgba(229, 83, 75, 0.15); color: var(--fail); }
+#output {
+  flex: 0 0 32%; min-height: 120px; margin: 0; padding: 10px 14px; overflow: auto;
+  font: 12.5px/1.45 var(--mono); background: #101216; border-top: 1px solid var(--border); white-space: pre-wrap;
+}
+
+@media (max-width: 800px) {
+  .split { display: block; }
+  .statement { border-right: none; border-bottom: 1px solid var(--border); max-height: none; }
+  #editor { height: 60vh; }
+  #output { min-height: 200px; }
+}

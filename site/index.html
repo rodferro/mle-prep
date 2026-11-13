@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MLE Prep</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/theme/material-darker.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="#" class="brand">MLE Prep</a>
+    <span id="py-status" class="status loading">Loading Python…</span>
+    <a href="anki.txt" download="mle-prep-anki.txt" class="anki">Anki import</a>
+  </header>
+
+  <main id="list-view" hidden>
+    <p class="intro">LeetCode-style practice for ML engineering interviews. Pick a problem, write the
+      function, and run the tests, all in your browser. Nothing is saved: each visit starts from a clean stub.</p>
+    <table class="problems">
+      <thead><tr><th>#</th><th>Problem</th><th>Difficulty</th><th>Tags</th></tr></thead>
+      <tbody id="problem-rows"></tbody>
+    </table>
+  </main>
+
+  <main id="problem-view" class="split" hidden>
+    <section class="statement">
+      <h1 id="p-title"></h1>
+      <div id="p-meta" class="meta"></div>
+      <pre id="p-statement"></pre>
+    </section>
+    <section class="workspace">
+      <div class="toolbar">
+        <button id="run" class="primary" disabled title="Ctrl/Cmd + Enter">▶ Run tests</button>
+        <button id="stop" hidden>■ Stop</button>
+        <button id="reset">Reset</button>
+        <span class="spacer"></span>
+        <button id="toggle-solution">Show solution</button>
+      </div>
+      <div id="editor"></div>
+      <div id="solution-panel" hidden>
+        <div class="panel-head">
+          <span>Reference solution</span>
+          <button id="run-reference" class="small" disabled>Run tests on reference</button>
+        </div>
+        <pre id="solution"></pre>
+      </div>
+      <div id="result-banner" hidden></div>
+      <pre id="output">Press “Run tests” to check your solution.</pre>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/python/python.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/edit/matchbrackets.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
