@@ -45,14 +45,24 @@ python -m http.server -d site 8000         # open http://localhost:8000
 ## Anki
 
 The site serves an Anki import file at
-[`/anki.txt`](https://rodferro.github.io/mle-prep/anki.txt). In Anki, use **File → Import**
-and pick the file. It creates Basic notes in the **MLE Prep** deck:
+[`/anki.txt`](https://rodferro.github.io/mle-prep/anki.txt). It targets a note type named
+**MLE Prep** with these fields, in order:
 
-- **Front:** the problem statement, plus a link that opens it in the browser
-- **Back:** the reference solution
+| # | Field | Value |
+|---|-------|-------|
+| 1 | ID | `P03` (title link: `https://rodferro.github.io/mle-prep/#{{ID}}`) |
+| 2 | TitleSlug | module name, e.g. `p03_near_duplicates` |
+| 3 | Title | problem title |
+| 4 | Content | statement in `<pre style="white-space: pre-wrap">` |
+| 5 | Difficulty | `Easy` / `Medium` / `Hard` |
+| 6 | CodeSnippet | the stub (HTML-escaped; wrap in `<pre>` in the template) |
+| 7 | Code | the reference solution (HTML-escaped) |
 
-Each note has a stable ID (`mle-prep-p03`), so importing again after adding or editing
-problems updates the existing cards and keeps your review history.
+Tags go into Anki's own tags (`mle-prep` plus the catalog tags). In Anki, use
+**File → Import** and pick the file. Notes go into the **MLE Prep** deck.
+
+Each note has a stable GUID (`mle-prep-p03`), so importing again after adding or editing
+problems updates the existing notes and keeps your review history.
 
 ## Adding a problem
 

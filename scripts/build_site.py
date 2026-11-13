@@ -62,27 +62,30 @@ def anki_lines(problems: list) -> str:
         # Anki text import: tabs/newlines must not appear raw inside a field.
         return s.replace("\t", "    ").replace("\r", "").replace("\n", "<br>")
 
+    # Columns: guid, then the "MLE Prep" note type's fields in order
+    # (ID, TitleSlug, Title, Content, Difficulty, CodeSnippet, Code), then tags.
     rows = [
         "#separator:tab",
         "#html:true",
-        "#notetype:Basic",
+        "#notetype:MLE Prep",
         "#deck:MLE Prep",
         "#guid column:1",
-        "#tags column:4",
+        "#tags column:9",
     ]
     for p in problems:
-        front = (
-            f"<b>{html.escape(p['id'].upper())} · {html.escape(p['title'])}</b> "
-            f"<i>({html.escape(p['difficulty'])})</i><br><br>"
-            f"<pre style='text-align:left;white-space:pre-wrap'>{html.escape(p['statement'])}</pre>"
-            f"<a href='{p['url']}'>Solve it in the browser →</a>"
-        )
-        back = (
-            f"<pre style='text-align:left;white-space:pre-wrap;font-size:0.85em'>"
-            f"{html.escape(p['solution'])}</pre>"
-        )
-        tags = " ".join(["mle-prep", *p["tags"]])
-        rows.append("\t".join([f"mle-prep-{p['id']}", field(front), field(back), tags]))
+        content = f'<pre style="white-space: pre-wrap">{html.escape(p["statement"])}</pre>'
+        fields = [
+            f"mle-prep-{p['id']}",          # guid: stable, so re-imports update notes
+            p["id"].upper(),                # ID -> "P03" (title link: .../mle-prep/#{{ID}})
+            p["module"],                    # TitleSlug
+            html.escape(p["title"]),        # Title
+            content,                        # Content
+            p["difficulty"],                # Difficulty (Easy/Medium/Hard)
+            html.escape(p["stub"]),         # CodeSnippet (template wraps it in <pre>)
+            html.escape(p["solution"]),     # Code
+            " ".join(["mle-prep", *p["tags"]]),
+        ]
+        rows.append("\t".join(field(f) for f in fields))
     return "\n".join(rows) + "\n"
 
 

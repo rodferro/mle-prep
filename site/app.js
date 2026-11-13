@@ -122,7 +122,7 @@
   }
 
   function route() {
-    const id = location.hash.replace(/^#/, "");
+    const id = location.hash.replace(/^#/, "").toLowerCase();   // Anki links use "#P03"
     const p = state.data.problems.find((x) => x.id === id);
     if (p) {
       showProblem(p);
