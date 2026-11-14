@@ -1,0 +1,4 @@
+# Needed to run the tests locally (the browser site loads its own copies via Pyodide).
+pytest>=7
+pandas>=2.0   # format="ISO8601" in pd.to_datetime needs 2.0+
+numpy>=1.24

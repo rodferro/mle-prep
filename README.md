@@ -33,7 +33,8 @@ time).
 ## Layout
 
 ```
-catalog.json        problem list: id, title, difficulty, tags
+catalog.json        problem list: id, title, difficulty, tags, extra packages
+requirements.txt    what you need to run the tests locally
 problems/           stubs (the full problem statement is the module docstring)
 tests/              pytest suites, one per problem
 solutions/          reference solutions with notes on complexity and follow-ups
@@ -44,7 +45,7 @@ scripts/build_site.py   bundles everything into site/problems.json and site/anki
 ## Practice locally
 
 ```bash
-pip install pytest pandas numpy
+pip install -r requirements.txt
 pytest tests/test_p03_near_duplicates.py   # your code in problems/
 USE_SOLUTIONS=1 pytest                     # same tests, reference solutions
 ```
