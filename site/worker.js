@@ -50,10 +50,41 @@ const ready = (async () => {
   postMessage({ type: "ready" });
 })().catch((err) => postMessage({ type: "fatal", error: String(err) }));
 
+// Extra Pyodide packages (e.g. pandas) are loaded only for problems that need them.
+const loadedPackages = new Set();
+
+let packageQueue = Promise.resolve();
+
+// Serialized so a preload and a run asking for the same package don't load it twice.
+function ensurePackages(packages) {
+  const next = packageQueue.then(async () => {
+    const missing = (packages || []).filter((p) => !loadedPackages.has(p));
+    if (!missing.length) return;
+    postMessage({ type: "status", text: `Loading ${missing.join(", ")}…` });
+    try {
+      await pyodide.loadPackage(missing);
+      missing.forEach((p) => loadedPackages.add(p));
+    } finally {
+      postMessage({ type: "status", text: null });
+    }
+  });
+  packageQueue = next.catch(() => {});
+  return next;
+}
+
 onmessage = async (event) => {
   await ready;
-  const { id, files, testFile, useSolutions } = event.data;
+  const { type, id, files, testFile, useSolutions, packages } = event.data;
+  if (type === "preload") {
+    try {
+      await ensurePackages(packages);
+    } catch (err) {
+      postMessage({ type: "status", text: null, error: `Could not load ${packages.join(", ")}: ${err}` });
+    }
+    return;
+  }
   try {
+    await ensurePackages(packages);
     const write = pyodide.globals.get("write_file");
     for (const [path, text] of Object.entries(files)) write(path, text);
     write.destroy();

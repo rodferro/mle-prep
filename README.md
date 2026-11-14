@@ -15,6 +15,20 @@ nothing to install. Nothing is saved, and each visit starts from a clean stub.
 | P03 | Near-duplicate agreement events in a stream | Medium |
 | P04 | Rolling model performance metrics | Medium |
 | P05 | Safely parse and preprocess large text documents | Medium |
+| P06 | Sessionization *(pandas)* | Medium |
+| P07 | Point-in-time feature join *(pandas)* | Hard |
+| P08 | Velocity features for fraud detection *(pandas)* | Medium |
+| P09 | Weekly cohort retention table *(pandas)* | Medium |
+| P10 | Cleaning a messy export *(pandas)* | Medium |
+| P11 | ROC-AUC and average precision from scratch | Medium |
+| P12 | Leakage-safe train/validation splits | Medium |
+| P13 | Drift detection with PSI | Easy |
+| P14 | Choosing a decision threshold under costs and capacity | Medium |
+| P15 | Probability calibration: reliability bins, ECE, Platt scaling | Medium |
+
+Pandas problems require pandas: the tests check that you return DataFrames. On the
+site, pandas loads only when you open one of those problems (a few seconds the first
+time).
 
 ## Layout
 
@@ -30,7 +44,7 @@ scripts/build_site.py   bundles everything into site/problems.json and site/anki
 ## Practice locally
 
 ```bash
-pip install pytest
+pip install pytest pandas numpy
 pytest tests/test_p03_near_duplicates.py   # your code in problems/
 USE_SOLUTIONS=1 pytest                     # same tests, reference solutions
 ```

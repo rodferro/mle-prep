@@ -14,6 +14,16 @@
         state.ready = true;
         setStatus("ready", "Python ready");
         setRunEnabled(true);
+        preload(state.current);
+      } else if (msg.type === "status") {
+        if (msg.error) {
+          setStatus("error", "Package failed to load");
+          $("output").textContent = msg.error;
+        } else if (msg.text) {
+          setStatus("loading", msg.text);
+        } else if (state.ready) {
+          setStatus("ready", "Python ready");
+        }
       } else if (msg.type === "fatal") {
         setStatus("error", "Python failed to load");
         $("output").textContent =
@@ -56,7 +66,21 @@
     $("output").textContent = useSolutions ? "Running tests on the reference solution…" : "Running tests…";
     $("run").hidden = true;
     $("stop").hidden = false;
-    state.worker.postMessage({ id: state.runId, files, testFile: p.test_file, useSolutions });
+    state.worker.postMessage({
+      type: "run",
+      id: state.runId,
+      files,
+      testFile: p.test_file,
+      useSolutions,
+      packages: p.packages || [],
+    });
+  }
+
+  // Start downloading a problem's extra packages (e.g. pandas) as soon as it's opened.
+  function preload(p) {
+    if (p && p.packages && p.packages.length && state.worker) {
+      state.worker.postMessage({ type: "preload", packages: p.packages });
+    }
   }
 
   function showResult(code, output) {
@@ -116,6 +140,7 @@
     $("list-view").hidden = true;
     $("problem-view").hidden = false;
     state.editor.setValue(p.stub);
+    preload(p);
     state.editor.clearHistory();
     state.editor.refresh();
     state.editor.focus();

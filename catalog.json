@@ -4,34 +4,177 @@
     "module": "p01_gradient_descent",
     "title": "Linear regression with gradient descent",
     "difficulty": "Easy",
-    "tags": ["ml-fundamentals", "optimization", "docusign"]
+    "tags": [
+      "ml-fundamentals",
+      "optimization",
+      "docusign"
+    ]
   },
   {
     "id": "p02",
     "module": "p02_precision_recall",
     "title": "Precision and recall from a confusion matrix",
     "difficulty": "Easy",
-    "tags": ["metrics", "docusign"]
+    "tags": [
+      "metrics",
+      "docusign"
+    ]
   },
   {
     "id": "p03",
     "module": "p03_near_duplicates",
     "title": "Near-duplicate agreement events in a stream",
     "difficulty": "Medium",
-    "tags": ["streaming", "hashing", "docusign"]
+    "tags": [
+      "streaming",
+      "hashing",
+      "docusign"
+    ]
   },
   {
     "id": "p04",
     "module": "p04_rolling_metrics",
     "title": "Rolling model performance metrics",
     "difficulty": "Medium",
-    "tags": ["metrics", "monitoring", "sliding-window", "docusign"]
+    "tags": [
+      "metrics",
+      "monitoring",
+      "sliding-window",
+      "docusign"
+    ]
   },
   {
     "id": "p05",
     "module": "p05_text_preprocessing",
     "title": "Safely parse and preprocess large text documents",
     "difficulty": "Medium",
-    "tags": ["nlp", "streaming", "unicode", "docusign"]
+    "tags": [
+      "nlp",
+      "streaming",
+      "unicode",
+      "docusign"
+    ]
+  },
+  {
+    "id": "p06",
+    "module": "p06_sessionization",
+    "title": "Sessionization",
+    "difficulty": "Medium",
+    "tags": [
+      "pandas",
+      "groupby",
+      "time-series"
+    ],
+    "packages": [
+      "pandas"
+    ]
+  },
+  {
+    "id": "p07",
+    "module": "p07_point_in_time_join",
+    "title": "Point-in-time feature join",
+    "difficulty": "Hard",
+    "tags": [
+      "pandas",
+      "leakage",
+      "feature-store"
+    ],
+    "packages": [
+      "pandas"
+    ]
+  },
+  {
+    "id": "p08",
+    "module": "p08_velocity_features",
+    "title": "Velocity features for fraud detection",
+    "difficulty": "Medium",
+    "tags": [
+      "pandas",
+      "rolling-window",
+      "fraud"
+    ],
+    "packages": [
+      "pandas"
+    ]
+  },
+  {
+    "id": "p09",
+    "module": "p09_cohort_retention",
+    "title": "Weekly cohort retention table",
+    "difficulty": "Medium",
+    "tags": [
+      "pandas",
+      "pivot",
+      "product-analytics"
+    ],
+    "packages": [
+      "pandas"
+    ]
+  },
+  {
+    "id": "p10",
+    "module": "p10_messy_data_cleanup",
+    "title": "Cleaning a messy export",
+    "difficulty": "Medium",
+    "tags": [
+      "pandas",
+      "data-cleaning",
+      "json"
+    ],
+    "packages": [
+      "pandas"
+    ]
+  },
+  {
+    "id": "p11",
+    "module": "p11_roc_auc",
+    "title": "ROC-AUC and average precision from scratch",
+    "difficulty": "Medium",
+    "tags": [
+      "metrics",
+      "ranking"
+    ]
+  },
+  {
+    "id": "p12",
+    "module": "p12_leakage_safe_splits",
+    "title": "Leakage-safe train/validation splits",
+    "difficulty": "Medium",
+    "tags": [
+      "validation",
+      "leakage"
+    ]
+  },
+  {
+    "id": "p13",
+    "module": "p13_psi_drift",
+    "title": "Drift detection with PSI",
+    "difficulty": "Easy",
+    "tags": [
+      "monitoring",
+      "drift"
+    ]
+  },
+  {
+    "id": "p14",
+    "module": "p14_threshold_selection",
+    "title": "Choosing a decision threshold under costs and capacity",
+    "difficulty": "Medium",
+    "tags": [
+      "decisioning",
+      "fraud",
+      "metrics"
+    ]
+  },
+  {
+    "id": "p15",
+    "module": "p15_calibration",
+    "title": "Probability calibration: reliability bins, ECE, Platt scaling",
+    "difficulty": "Medium",
+    "tags": [
+      "calibration",
+      "metrics",
+      "optimization"
+    ]
   }
 ]
