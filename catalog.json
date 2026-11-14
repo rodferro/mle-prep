@@ -176,5 +176,99 @@
       "metrics",
       "optimization"
     ]
+  },
+  {
+    "id": "p16",
+    "module": "p16_knn",
+    "title": "K-nearest neighbors classifier",
+    "difficulty": "Easy",
+    "tags": [
+      "algorithms",
+      "numpy",
+      "distance"
+    ],
+    "packages": [
+      "numpy"
+    ]
+  },
+  {
+    "id": "p17",
+    "module": "p17_naive_bayes",
+    "title": "Gaussian Naive Bayes",
+    "difficulty": "Easy",
+    "tags": [
+      "algorithms",
+      "numpy",
+      "probability"
+    ],
+    "packages": [
+      "numpy"
+    ]
+  },
+  {
+    "id": "p18",
+    "module": "p18_logistic_regression",
+    "title": "Logistic regression with L2 regularization",
+    "difficulty": "Medium",
+    "tags": [
+      "algorithms",
+      "numpy",
+      "optimization"
+    ],
+    "packages": [
+      "numpy"
+    ]
+  },
+  {
+    "id": "p19",
+    "module": "p19_pca",
+    "title": "Principal Component Analysis",
+    "difficulty": "Medium",
+    "tags": [
+      "algorithms",
+      "numpy",
+      "linear-algebra"
+    ],
+    "packages": [
+      "numpy"
+    ]
+  },
+  {
+    "id": "p20",
+    "module": "p20_kmeans",
+    "title": "K-means clustering",
+    "difficulty": "Medium",
+    "tags": [
+      "algorithms",
+      "numpy",
+      "clustering"
+    ],
+    "packages": [
+      "numpy"
+    ]
+  },
+  {
+    "id": "p21",
+    "module": "p21_best_split",
+    "title": "Best split for a decision tree node",
+    "difficulty": "Medium",
+    "tags": [
+      "algorithms",
+      "trees"
+    ]
+  },
+  {
+    "id": "p22",
+    "module": "p22_linear_svm",
+    "title": "Linear SVM with hinge loss",
+    "difficulty": "Medium",
+    "tags": [
+      "algorithms",
+      "numpy",
+      "optimization"
+    ],
+    "packages": [
+      "numpy"
+    ]
   }
 ]

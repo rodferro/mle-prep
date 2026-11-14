@@ -25,10 +25,19 @@ nothing to install. Nothing is saved, and each visit starts from a clean stub.
 | P13 | Drift detection with PSI | Easy |
 | P14 | Choosing a decision threshold under costs and capacity | Medium |
 | P15 | Probability calibration: reliability bins, ECE, Platt scaling | Medium |
+| P16 | K-nearest neighbors classifier *(numpy)* | Easy |
+| P17 | Gaussian Naive Bayes *(numpy)* | Easy |
+| P18 | Logistic regression with L2 regularization *(numpy)* | Medium |
+| P19 | Principal Component Analysis *(numpy)* | Medium |
+| P20 | K-means clustering *(numpy)* | Medium |
+| P21 | Best split for a decision tree node | Medium |
+| P22 | Linear SVM with hinge loss *(numpy)* | Medium |
 
-Pandas problems require pandas: the tests check that you return DataFrames. On the
-site, pandas loads only when you open one of those problems (a few seconds the first
-time).
+Pandas problems require pandas: the tests check that you return DataFrames. P16–P22
+are classic algorithms implemented with numpy, in a scikit-learn style API (`fit`,
+`predict`, ...), adapted from [MLfromscratch](https://github.com/rodferro/MLfromscratch).
+On the site, pandas and numpy load only when you open a problem that needs them (a few
+seconds the first time).
 
 ## Layout
 
